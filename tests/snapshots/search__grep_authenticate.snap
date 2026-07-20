@@ -1,0 +1,86 @@
+---
+source: tests/search.rs
+expression: result
+---
+{
+  "files": [
+    {
+      "path": "notes.md",
+      "matches": [
+        {
+          "line_number": 3,
+          "line": "The authenticate function checks credentials before any request is served.",
+          "before": [],
+          "after": [
+            ""
+          ],
+          "byte_range": [
+            9,
+            84
+          ]
+        },
+        {
+          "line_number": 5,
+          "line": "authenticate abcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghij",
+          "before": [],
+          "after": [],
+          "byte_range": [
+            85,
+            499
+          ]
+        }
+      ],
+      "match_count": 2
+    },
+    {
+      "path": "src/main.rs",
+      "matches": [
+        {
+          "line_number": 3,
+          "line": "    let user = authenticate(\"admin\", \"secret\");",
+          "before": [],
+          "after": [
+            "    match user {"
+          ],
+          "byte_range": [
+            42,
+            90
+          ]
+        },
+        {
+          "line_number": 10,
+          "line": "fn authenticate(username: &str, password: &str) -> Option<String> {",
+          "before": [],
+          "after": [
+            "    if username == \"admin\" && password == \"secret\" {"
+          ],
+          "byte_range": [
+            211,
+            279
+          ]
+        }
+      ],
+      "match_count": 2
+    },
+    {
+      "path": "script.py",
+      "matches": [
+        {
+          "line_number": 1,
+          "line": "def authenticate(username, password):",
+          "before": [],
+          "after": [
+            "    return username == \"admin\" and password == \"secret\""
+          ],
+          "byte_range": [
+            0,
+            38
+          ]
+        }
+      ],
+      "match_count": 1
+    }
+  ],
+  "total_matches": 5,
+  "truncated": false
+}
