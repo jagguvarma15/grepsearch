@@ -60,7 +60,7 @@ fn file_metadata_is_populated() {
     let hits = engine().find_files(&FileQuery::new("notes.md")).unwrap();
     assert_eq!(hits.len(), 1);
     assert!(hits[0].bytes > 0);
-    assert!(hits[0].modified.is_some());
+    assert!(hits[0].modified.unwrap() > 0.0);
 }
 
 #[test]
