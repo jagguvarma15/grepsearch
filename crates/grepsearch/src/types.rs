@@ -1,6 +1,5 @@
 use serde::{Deserialize, Serialize};
 use std::path::PathBuf;
-use std::time::SystemTime;
 
 /// Default cap on the number of matches returned by a grep query.
 pub const DEFAULT_MAX_RESULTS: usize = 100;
@@ -162,8 +161,9 @@ pub struct FileHit {
     pub path: PathBuf,
     /// Size of the file in bytes.
     pub bytes: u64,
-    /// Last modification time, when available.
-    pub modified: Option<SystemTime>,
+    /// Last modification time as seconds since the unix epoch, when
+    /// available.
+    pub modified: Option<f64>,
 }
 
 /// An entry produced by a directory listing.
