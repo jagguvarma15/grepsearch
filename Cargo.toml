@@ -3,7 +3,7 @@ resolver = "2"
 members = ["crates/grepsearch", "crates/grepsearch-py"]
 
 [workspace.package]
-version = "0.1.51"
+version = "0.1.54"
 edition = "2024"
 license = "MIT"
 repository = "https://github.com/jagguvarma15/grepsearch"
