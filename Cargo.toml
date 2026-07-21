@@ -1,30 +1,13 @@
-[package]
-name = "grepsearch"
+[workspace]
+resolver = "2"
+members = ["crates/grepsearch", "crates/grepsearch-py"]
+
+[workspace.package]
 version = "0.1.0"
 edition = "2024"
-description = "Index-free grep-based retrieval primitives for agent tool loops"
 license = "MIT"
 repository = "https://github.com/jagguvarma15/grepsearch"
-keywords = ["grep", "search", "retrieval", "agent"]
-categories = ["text-processing", "filesystem"]
 
-[dependencies]
-clap = { version = "4.6.3", features = ["derive"], optional = true }
-globset = "0.4.19"
-grep = "0.4.1"
-ignore = "0.4.31"
+[workspace.dependencies]
 serde = { version = "1.0.229", features = ["derive"] }
 serde_json = "1.0.151"
-thiserror = "2.0.19"
-
-[features]
-cli = ["dep:clap"]
-
-[[bin]]
-name = "grepsearch"
-path = "src/bin/grepsearch.rs"
-required-features = ["cli"]
-
-[dev-dependencies]
-insta = { version = "1.48.0", features = ["json"] }
-tempfile = "3.27.0"

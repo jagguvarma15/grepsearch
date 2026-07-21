@@ -1,0 +1,31 @@
+[build-system]
+requires = ["maturin>=1.14,<2.0"]
+build-backend = "maturin"
+
+[project]
+name = "grepsearch"
+description = "Index-free grep-based retrieval primitives for AI agent tool loops"
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+authors = [{ name = "Jagadesh Varma Nadimpalli" }]
+keywords = ["grep", "search", "retrieval", "agent", "ripgrep"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Rust",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Text Processing :: Indexing",
+]
+dynamic = ["version"]
+
+[project.urls]
+Repository = "https://github.com/jagguvarma15/grepsearch"
+Issues = "https://github.com/jagguvarma15/grepsearch/issues"
+
+[tool.maturin]
+features = ["pyo3/extension-module"]
+python-source = "python"
+module-name = "grepsearch._native"

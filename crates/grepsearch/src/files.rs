@@ -28,7 +28,10 @@ pub(crate) fn find_files(engine: &SearchEngine, q: &FileQuery) -> Result<Vec<Fil
         hits.push(FileHit {
             path: engine.relativize(entry.path()),
             bytes: metadata.as_ref().map_or(0, std::fs::Metadata::len),
-            modified: metadata.and_then(|m| m.modified().ok()),
+            modified: metadata
+                .and_then(|m| m.modified().ok())
+                .and_then(|t| t.duration_since(std::time::UNIX_EPOCH).ok())
+                .map(|d| d.as_secs_f64()),
         });
     }
     hits.sort_by(|a, b| a.path.cmp(&b.path));
