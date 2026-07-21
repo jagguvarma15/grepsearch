@@ -72,4 +72,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: dtolnay/rust-toolchain@stable
-      - run: cargo publish -p grepsearch --token ${{ secrets.CARGO_REGISTRY_TOKEN }}
+      - run: |
+          if [ -z "$CARGO_REGISTRY_TOKEN" ]; then
+            echo "The CARGO_REGISTRY_TOKEN repository secret is not set."
+            echo "Create a crates.io API token with publish scope and add it"
+            echo "under Settings, Secrets and variables, Actions, then re-run"
+            echo "this job."
+            exit 1
+          fi
+          cargo publish -p grepsearch
+        env:
+          CARGO_REGISTRY_TOKEN: ${{ secrets.CARGO_REGISTRY_TOKEN }}
